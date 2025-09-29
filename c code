@@ -1,0 +1,132 @@
+#include<pic.h>
+void delay()
+{
+T0CS=0;
+T0SE=0;
+PSA=0;
+PS0=1;
+PS1=1;
+PS2=1;
+TMR0=252;
+while(T0IF==0);
+T0IF=0;
+TMR0=0;
+}
+void delay1()
+{
+for(int i=0;i<5;i++)
+{
+delay();
+}
+}
+void main()
+{
+int a,b,c,d,i,j,e,f;
+int seg[]={0X3F,0X06,0X5B,0X4F,0X66,0X6D,0X7D,0X07,0X7F,0X6F};
+TRISB=0X00;
+PORTB=0X00;
+TRISC=0X00;
+PORTC=0X00;
+while(1)
+{
+for(i=0;i<30;i++)
+{
+RC0=0;
+RC1=1;
+RC2=1;
+RC3=1;
+RC4=1;
+RC5=1;
+PORTB=seg[f];
+delay1();
+RC0=1;
+RC1=0;
+RC2=1;
+RC3=1;
+RC4=1;
+RC5=1;
+PORTB=seg[e];
+delay1();
+RC0=1;
+RC1=1;
+RC2=0;
+RC3=1;
+RC4=1;
+RC5=1;
+PORTB=seg[d];
+delay1();
+RC0=1;
+RC1=1;
+RC2=1;
+RC3=0;
+RC4=1;
+RC5=1;
+PORTB=seg[c];
+delay1();
+RC0=1;
+RC1=1;
+RC2=1;
+RC3=1;
+RC4=0;
+RC5=1;
+PORTB=seg[b];
+delay1();
+RC0=1;
+RC1=1;
+RC2=1;
+RC3=1;
+RC4=1;
+RC5=0;
+PORTB=seg[a];
+delay1();
+}
+if(a>9)
+{
+	a=0;
+		if(b>6)
+		{
+		b=0;
+			if(c>9)
+			{
+			c=0;
+				if(d>6)
+				{
+				d=0;
+					if(e>9)
+					{
+					e=0;
+						if(f>2)
+						{
+						f=0;
+						}
+						else
+						{
+						f++;
+						}
+					}
+					else
+					{
+					e++;
+					}
+				}
+				else
+				{
+				d++;
+				}
+			}
+			else
+			{
+			c++;
+			}
+		}
+		else
+		{
+		b++;
+		}
+}
+else
+{
+a++;
+}
+}
+}
