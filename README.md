@@ -1,4 +1,4 @@
-# digital-clock-using-pic
+# Digital Clock using PIC, Timer0 and 7-Segment Displays
 Digital Clock Simulation using PIC Microcontroller
 
   This project is a digital clock designed and tested in Proteus using a PIC microcontroller.
